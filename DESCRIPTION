@@ -1,0 +1,13 @@
+Package: expmAction
+Type: Package
+Title: What the package does (short line)
+Version: 0.0.9000
+Date: 2016-01-14
+Author: Who wrote it
+Maintainer: Who to complain to <yourfault@somewhere.net>
+Description: More about what it does (maybe more than one line)
+License: What license is it under?
+Imports: Rcpp (>= 0.12.3), Matrix
+LinkingTo: Rcpp, RcppArmadillo
+Encoding: UTF-8
+RoxygenNote: 7.3.3
