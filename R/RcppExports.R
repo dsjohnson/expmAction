@@ -28,6 +28,11 @@ rcpparma_bothproducts <- function(x) {
 }
 
 #' @export
+cpp_nimble_sparse_uniformization <- function(nz_values, row_idx, col_idx, N, v, t, tolerance) {
+    .Call(`_expmAction_cpp_nimble_sparse_uniformization`, nz_values, row_idx, col_idx, N, v, t, tolerance)
+}
+
+#' @export
 cpp_tune_uniformization <- function(Q, tolerance = 1e-12) {
     .Call(`_expmAction_cpp_tune_uniformization`, Q, tolerance)
 }

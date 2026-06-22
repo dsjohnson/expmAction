@@ -87,6 +87,23 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// cpp_nimble_sparse_uniformization
+arma::mat cpp_nimble_sparse_uniformization(const arma::vec& nz_values, const arma::uvec& row_idx, const arma::uvec& col_idx, int N, const arma::rowvec& v, double t, double tolerance);
+RcppExport SEXP _expmAction_cpp_nimble_sparse_uniformization(SEXP nz_valuesSEXP, SEXP row_idxSEXP, SEXP col_idxSEXP, SEXP NSEXP, SEXP vSEXP, SEXP tSEXP, SEXP toleranceSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const arma::vec& >::type nz_values(nz_valuesSEXP);
+    Rcpp::traits::input_parameter< const arma::uvec& >::type row_idx(row_idxSEXP);
+    Rcpp::traits::input_parameter< const arma::uvec& >::type col_idx(col_idxSEXP);
+    Rcpp::traits::input_parameter< int >::type N(NSEXP);
+    Rcpp::traits::input_parameter< const arma::rowvec& >::type v(vSEXP);
+    Rcpp::traits::input_parameter< double >::type t(tSEXP);
+    Rcpp::traits::input_parameter< double >::type tolerance(toleranceSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_nimble_sparse_uniformization(nz_values, row_idx, col_idx, N, v, t, tolerance));
+    return rcpp_result_gen;
+END_RCPP
+}
 // cpp_tune_uniformization
 Rcpp::List cpp_tune_uniformization(const arma::sp_mat& Q, double tolerance);
 static SEXP _expmAction_cpp_tune_uniformization_try(SEXP QSEXP, SEXP toleranceSEXP) {
@@ -187,6 +204,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_expmAction_rcpparma_outerproduct", (DL_FUNC) &_expmAction_rcpparma_outerproduct, 1},
     {"_expmAction_rcpparma_innerproduct", (DL_FUNC) &_expmAction_rcpparma_innerproduct, 1},
     {"_expmAction_rcpparma_bothproducts", (DL_FUNC) &_expmAction_rcpparma_bothproducts, 1},
+    {"_expmAction_cpp_nimble_sparse_uniformization", (DL_FUNC) &_expmAction_cpp_nimble_sparse_uniformization, 7},
     {"_expmAction_cpp_tune_uniformization", (DL_FUNC) &_expmAction_cpp_tune_uniformization, 2},
     {"_expmAction_cpp_execute_uniformization", (DL_FUNC) &_expmAction_cpp_execute_uniformization, 6},
     {"_expmAction_RcppExport_registerCCallable", (DL_FUNC) &_expmAction_RcppExport_registerCCallable, 0},

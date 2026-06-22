@@ -3,6 +3,7 @@
 export(cpp_execute_uniformization)
 export(cpp_execute_uniformization_advanced)
 export(cpp_execute_uniformization_time)
+export(cpp_nimble_sparse_uniformization)
 export(cpp_tune_uniformization)
 import(Matrix)
 importFrom(Rcpp,evalCpp)
