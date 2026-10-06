@@ -4,8 +4,8 @@
 \name{expmAction-package}
 \alias{expmAction}
 \alias{expmAction-package}
-\title{expmAction: What the package does (short line)}
+\title{expmAction: Evaluates v'exp(Q) for sparse matrix Q}
 \description{
-More about what it does (maybe more than one line)
+An efficient implementation of the uniformization algorithm is used to evaluate the matrix exponential action v'exp(Q) for a positive vector v.
 }
 \keyword{internal}
