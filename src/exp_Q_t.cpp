@@ -2,19 +2,26 @@
 #include <cmath>
 
 // [[Rcpp::depends(RcppArmadillo)]]
+// [[Rcpp::interfaces(r, cpp)]]
 
 //' @export
 // [[Rcpp::export]]
-arma::mat cpp_execute_uniformization_time(const arma::sp_mat& Q, 
-                                          const arma::rowvec& v, 
-                                          double alpha_0, 
-                                          double t, 
-                                          double tolerance) {
+arma::mat cpp_v_exp_Q_t(
+    const arma::rowvec& v, const arma::sp_mat& Q, double t=1, double tolerance=1.0e-12) {
   int N = Q.n_rows;
   
   // Handle the trivial edge case instantly
   if (t <= 0.0) {
     return arma::conv_to<arma::mat>::from(v);
+  }
+  
+  arma::spdiagview<double> diag_Q = Q.diag();
+  double alpha_0 = 0.0;
+  for (arma::uword i = 0; i < diag_Q.n_elem; ++i) {
+    double abs_val = std::abs(diag_Q(i));
+    if (abs_val > alpha_0) {
+      alpha_0 = abs_val;
+    }
   }
   
   // 1. Calculate the time-dependent uniformization rate

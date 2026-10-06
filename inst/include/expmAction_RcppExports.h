@@ -25,17 +25,17 @@ namespace expmAction {
         }
     }
 
-    inline Rcpp::List cpp_tune_uniformization(const arma::sp_mat& Q, double tolerance = 1e-12) {
-        typedef SEXP(*Ptr_cpp_tune_uniformization)(SEXP,SEXP);
-        static Ptr_cpp_tune_uniformization p_cpp_tune_uniformization = NULL;
-        if (p_cpp_tune_uniformization == NULL) {
-            validateSignature("Rcpp::List(*cpp_tune_uniformization)(const arma::sp_mat&,double)");
-            p_cpp_tune_uniformization = (Ptr_cpp_tune_uniformization)R_GetCCallable("expmAction", "_expmAction_cpp_tune_uniformization");
+    inline arma::mat cpp_v_exp_Q_t(const arma::rowvec& v, const arma::sp_mat& Q, double t = 1, double tolerance = 1.0e-12) {
+        typedef SEXP(*Ptr_cpp_v_exp_Q_t)(SEXP,SEXP,SEXP,SEXP);
+        static Ptr_cpp_v_exp_Q_t p_cpp_v_exp_Q_t = NULL;
+        if (p_cpp_v_exp_Q_t == NULL) {
+            validateSignature("arma::mat(*cpp_v_exp_Q_t)(const arma::rowvec&,const arma::sp_mat&,double,double)");
+            p_cpp_v_exp_Q_t = (Ptr_cpp_v_exp_Q_t)R_GetCCallable("expmAction", "_expmAction_cpp_v_exp_Q_t");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p_cpp_tune_uniformization(Shield<SEXP>(Rcpp::wrap(Q)), Shield<SEXP>(Rcpp::wrap(tolerance)));
+            rcpp_result_gen = p_cpp_v_exp_Q_t(Shield<SEXP>(Rcpp::wrap(v)), Shield<SEXP>(Rcpp::wrap(Q)), Shield<SEXP>(Rcpp::wrap(t)), Shield<SEXP>(Rcpp::wrap(tolerance)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
@@ -43,28 +43,7 @@ namespace expmAction {
             throw Rcpp::LongjumpException(rcpp_result_gen);
         if (rcpp_result_gen.inherits("try-error"))
             throw Rcpp::exception(Rcpp::as<std::string>(rcpp_result_gen).c_str());
-        return Rcpp::as<Rcpp::List >(rcpp_result_gen);
-    }
-
-    inline arma::sp_mat cpp_execute_uniformization(const arma::sp_mat& Q, const arma::sp_mat& x, int s, int m, double alpha, double tolerance = 1e-12) {
-        typedef SEXP(*Ptr_cpp_execute_uniformization)(SEXP,SEXP,SEXP,SEXP,SEXP,SEXP);
-        static Ptr_cpp_execute_uniformization p_cpp_execute_uniformization = NULL;
-        if (p_cpp_execute_uniformization == NULL) {
-            validateSignature("arma::sp_mat(*cpp_execute_uniformization)(const arma::sp_mat&,const arma::sp_mat&,int,int,double,double)");
-            p_cpp_execute_uniformization = (Ptr_cpp_execute_uniformization)R_GetCCallable("expmAction", "_expmAction_cpp_execute_uniformization");
-        }
-        RObject rcpp_result_gen;
-        {
-            RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p_cpp_execute_uniformization(Shield<SEXP>(Rcpp::wrap(Q)), Shield<SEXP>(Rcpp::wrap(x)), Shield<SEXP>(Rcpp::wrap(s)), Shield<SEXP>(Rcpp::wrap(m)), Shield<SEXP>(Rcpp::wrap(alpha)), Shield<SEXP>(Rcpp::wrap(tolerance)));
-        }
-        if (rcpp_result_gen.inherits("interrupted-error"))
-            throw Rcpp::internal::InterruptedException();
-        if (Rcpp::internal::isLongjumpSentinel(rcpp_result_gen))
-            throw Rcpp::LongjumpException(rcpp_result_gen);
-        if (rcpp_result_gen.inherits("try-error"))
-            throw Rcpp::exception(Rcpp::as<std::string>(rcpp_result_gen).c_str());
-        return Rcpp::as<arma::sp_mat >(rcpp_result_gen);
+        return Rcpp::as<arma::mat >(rcpp_result_gen);
     }
 
 }

@@ -2,44 +2,8 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 #' @export
-cpp_execute_uniformization_advanced <- function(Q, v, m, alpha, tolerance) {
-    .Call(`_expmAction_cpp_execute_uniformization_advanced`, Q, v, m, alpha, tolerance)
-}
-
-#' @export
-cpp_execute_uniformization_time <- function(Q, v, alpha_0, t, tolerance) {
-    .Call(`_expmAction_cpp_execute_uniformization_time`, Q, v, alpha_0, t, tolerance)
-}
-
-rcpparma_hello_world <- function() {
-    .Call(`_expmAction_rcpparma_hello_world`)
-}
-
-rcpparma_outerproduct <- function(x) {
-    .Call(`_expmAction_rcpparma_outerproduct`, x)
-}
-
-rcpparma_innerproduct <- function(x) {
-    .Call(`_expmAction_rcpparma_innerproduct`, x)
-}
-
-rcpparma_bothproducts <- function(x) {
-    .Call(`_expmAction_rcpparma_bothproducts`, x)
-}
-
-#' @export
-cpp_nimble_sparse_uniformization <- function(nz_values, row_idx, col_idx, N, v, t, tolerance) {
-    .Call(`_expmAction_cpp_nimble_sparse_uniformization`, nz_values, row_idx, col_idx, N, v, t, tolerance)
-}
-
-#' @export
-cpp_tune_uniformization <- function(Q, tolerance = 1e-12) {
-    .Call(`_expmAction_cpp_tune_uniformization`, Q, tolerance)
-}
-
-#' @export
-cpp_execute_uniformization <- function(Q, x, s, m, alpha, tolerance = 1e-12) {
-    .Call(`_expmAction_cpp_execute_uniformization`, Q, x, s, m, alpha, tolerance)
+cpp_v_exp_Q_t <- function(v, Q, t = 1, tolerance = 1.0e-12) {
+    .Call(`_expmAction_cpp_v_exp_Q_t`, v, Q, t, tolerance)
 }
 
 # Register entry points for exported C++ functions

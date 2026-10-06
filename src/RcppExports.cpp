@@ -14,151 +14,24 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// cpp_execute_uniformization_advanced
-arma::mat cpp_execute_uniformization_advanced(const arma::sp_mat& Q, const arma::rowvec& v, int m, double alpha, double tolerance);
-RcppExport SEXP _expmAction_cpp_execute_uniformization_advanced(SEXP QSEXP, SEXP vSEXP, SEXP mSEXP, SEXP alphaSEXP, SEXP toleranceSEXP) {
+// cpp_v_exp_Q_t
+arma::mat cpp_v_exp_Q_t(const arma::rowvec& v, const arma::sp_mat& Q, double t, double tolerance);
+static SEXP _expmAction_cpp_v_exp_Q_t_try(SEXP vSEXP, SEXP QSEXP, SEXP tSEXP, SEXP toleranceSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::sp_mat& >::type Q(QSEXP);
     Rcpp::traits::input_parameter< const arma::rowvec& >::type v(vSEXP);
-    Rcpp::traits::input_parameter< int >::type m(mSEXP);
-    Rcpp::traits::input_parameter< double >::type alpha(alphaSEXP);
-    Rcpp::traits::input_parameter< double >::type tolerance(toleranceSEXP);
-    rcpp_result_gen = Rcpp::wrap(cpp_execute_uniformization_advanced(Q, v, m, alpha, tolerance));
-    return rcpp_result_gen;
-END_RCPP
-}
-// cpp_execute_uniformization_time
-arma::mat cpp_execute_uniformization_time(const arma::sp_mat& Q, const arma::rowvec& v, double alpha_0, double t, double tolerance);
-RcppExport SEXP _expmAction_cpp_execute_uniformization_time(SEXP QSEXP, SEXP vSEXP, SEXP alpha_0SEXP, SEXP tSEXP, SEXP toleranceSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::sp_mat& >::type Q(QSEXP);
-    Rcpp::traits::input_parameter< const arma::rowvec& >::type v(vSEXP);
-    Rcpp::traits::input_parameter< double >::type alpha_0(alpha_0SEXP);
     Rcpp::traits::input_parameter< double >::type t(tSEXP);
     Rcpp::traits::input_parameter< double >::type tolerance(toleranceSEXP);
-    rcpp_result_gen = Rcpp::wrap(cpp_execute_uniformization_time(Q, v, alpha_0, t, tolerance));
-    return rcpp_result_gen;
-END_RCPP
-}
-// rcpparma_hello_world
-arma::mat rcpparma_hello_world();
-RcppExport SEXP _expmAction_rcpparma_hello_world() {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    rcpp_result_gen = Rcpp::wrap(rcpparma_hello_world());
-    return rcpp_result_gen;
-END_RCPP
-}
-// rcpparma_outerproduct
-arma::mat rcpparma_outerproduct(const arma::colvec& x);
-RcppExport SEXP _expmAction_rcpparma_outerproduct(SEXP xSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::colvec& >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpparma_outerproduct(x));
-    return rcpp_result_gen;
-END_RCPP
-}
-// rcpparma_innerproduct
-double rcpparma_innerproduct(const arma::colvec& x);
-RcppExport SEXP _expmAction_rcpparma_innerproduct(SEXP xSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::colvec& >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpparma_innerproduct(x));
-    return rcpp_result_gen;
-END_RCPP
-}
-// rcpparma_bothproducts
-Rcpp::List rcpparma_bothproducts(const arma::colvec& x);
-RcppExport SEXP _expmAction_rcpparma_bothproducts(SEXP xSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::colvec& >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpparma_bothproducts(x));
-    return rcpp_result_gen;
-END_RCPP
-}
-// cpp_nimble_sparse_uniformization
-arma::mat cpp_nimble_sparse_uniformization(const arma::vec& nz_values, const arma::uvec& row_idx, const arma::uvec& col_idx, int N, const arma::rowvec& v, double t, double tolerance);
-RcppExport SEXP _expmAction_cpp_nimble_sparse_uniformization(SEXP nz_valuesSEXP, SEXP row_idxSEXP, SEXP col_idxSEXP, SEXP NSEXP, SEXP vSEXP, SEXP tSEXP, SEXP toleranceSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::vec& >::type nz_values(nz_valuesSEXP);
-    Rcpp::traits::input_parameter< const arma::uvec& >::type row_idx(row_idxSEXP);
-    Rcpp::traits::input_parameter< const arma::uvec& >::type col_idx(col_idxSEXP);
-    Rcpp::traits::input_parameter< int >::type N(NSEXP);
-    Rcpp::traits::input_parameter< const arma::rowvec& >::type v(vSEXP);
-    Rcpp::traits::input_parameter< double >::type t(tSEXP);
-    Rcpp::traits::input_parameter< double >::type tolerance(toleranceSEXP);
-    rcpp_result_gen = Rcpp::wrap(cpp_nimble_sparse_uniformization(nz_values, row_idx, col_idx, N, v, t, tolerance));
-    return rcpp_result_gen;
-END_RCPP
-}
-// cpp_tune_uniformization
-Rcpp::List cpp_tune_uniformization(const arma::sp_mat& Q, double tolerance);
-static SEXP _expmAction_cpp_tune_uniformization_try(SEXP QSEXP, SEXP toleranceSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::traits::input_parameter< const arma::sp_mat& >::type Q(QSEXP);
-    Rcpp::traits::input_parameter< double >::type tolerance(toleranceSEXP);
-    rcpp_result_gen = Rcpp::wrap(cpp_tune_uniformization(Q, tolerance));
+    rcpp_result_gen = Rcpp::wrap(cpp_v_exp_Q_t(v, Q, t, tolerance));
     return rcpp_result_gen;
 END_RCPP_RETURN_ERROR
 }
-RcppExport SEXP _expmAction_cpp_tune_uniformization(SEXP QSEXP, SEXP toleranceSEXP) {
+RcppExport SEXP _expmAction_cpp_v_exp_Q_t(SEXP vSEXP, SEXP QSEXP, SEXP tSEXP, SEXP toleranceSEXP) {
     SEXP rcpp_result_gen;
     {
         Rcpp::RNGScope rcpp_rngScope_gen;
-        rcpp_result_gen = PROTECT(_expmAction_cpp_tune_uniformization_try(QSEXP, toleranceSEXP));
-    }
-    Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
-    if (rcpp_isInterrupt_gen) {
-        UNPROTECT(1);
-        Rf_onintr();
-    }
-    bool rcpp_isLongjump_gen = Rcpp::internal::isLongjumpSentinel(rcpp_result_gen);
-    if (rcpp_isLongjump_gen) {
-        Rcpp::internal::resumeJump(rcpp_result_gen);
-    }
-    Rboolean rcpp_isError_gen = Rf_inherits(rcpp_result_gen, "try-error");
-    if (rcpp_isError_gen) {
-        SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
-        UNPROTECT(1);
-        (Rf_error)("%s", CHAR(rcpp_msgSEXP_gen));
-    }
-    UNPROTECT(1);
-    return rcpp_result_gen;
-}
-// cpp_execute_uniformization
-arma::sp_mat cpp_execute_uniformization(const arma::sp_mat& Q, const arma::sp_mat& x, int s, int m, double alpha, double tolerance);
-static SEXP _expmAction_cpp_execute_uniformization_try(SEXP QSEXP, SEXP xSEXP, SEXP sSEXP, SEXP mSEXP, SEXP alphaSEXP, SEXP toleranceSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::traits::input_parameter< const arma::sp_mat& >::type Q(QSEXP);
-    Rcpp::traits::input_parameter< const arma::sp_mat& >::type x(xSEXP);
-    Rcpp::traits::input_parameter< int >::type s(sSEXP);
-    Rcpp::traits::input_parameter< int >::type m(mSEXP);
-    Rcpp::traits::input_parameter< double >::type alpha(alphaSEXP);
-    Rcpp::traits::input_parameter< double >::type tolerance(toleranceSEXP);
-    rcpp_result_gen = Rcpp::wrap(cpp_execute_uniformization(Q, x, s, m, alpha, tolerance));
-    return rcpp_result_gen;
-END_RCPP_RETURN_ERROR
-}
-RcppExport SEXP _expmAction_cpp_execute_uniformization(SEXP QSEXP, SEXP xSEXP, SEXP sSEXP, SEXP mSEXP, SEXP alphaSEXP, SEXP toleranceSEXP) {
-    SEXP rcpp_result_gen;
-    {
-        Rcpp::RNGScope rcpp_rngScope_gen;
-        rcpp_result_gen = PROTECT(_expmAction_cpp_execute_uniformization_try(QSEXP, xSEXP, sSEXP, mSEXP, alphaSEXP, toleranceSEXP));
+        rcpp_result_gen = PROTECT(_expmAction_cpp_v_exp_Q_t_try(vSEXP, QSEXP, tSEXP, toleranceSEXP));
     }
     Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
     if (rcpp_isInterrupt_gen) {
@@ -183,30 +56,20 @@ RcppExport SEXP _expmAction_cpp_execute_uniformization(SEXP QSEXP, SEXP xSEXP, S
 static int _expmAction_RcppExport_validate(const char* sig) { 
     static std::set<std::string> signatures;
     if (signatures.empty()) {
-        signatures.insert("Rcpp::List(*cpp_tune_uniformization)(const arma::sp_mat&,double)");
-        signatures.insert("arma::sp_mat(*cpp_execute_uniformization)(const arma::sp_mat&,const arma::sp_mat&,int,int,double,double)");
+        signatures.insert("arma::mat(*cpp_v_exp_Q_t)(const arma::rowvec&,const arma::sp_mat&,double,double)");
     }
     return signatures.find(sig) != signatures.end();
 }
 
 // registerCCallable (register entry points for exported C++ functions)
 RcppExport SEXP _expmAction_RcppExport_registerCCallable() { 
-    R_RegisterCCallable("expmAction", "_expmAction_cpp_tune_uniformization", (DL_FUNC)_expmAction_cpp_tune_uniformization_try);
-    R_RegisterCCallable("expmAction", "_expmAction_cpp_execute_uniformization", (DL_FUNC)_expmAction_cpp_execute_uniformization_try);
+    R_RegisterCCallable("expmAction", "_expmAction_cpp_v_exp_Q_t", (DL_FUNC)_expmAction_cpp_v_exp_Q_t_try);
     R_RegisterCCallable("expmAction", "_expmAction_RcppExport_validate", (DL_FUNC)_expmAction_RcppExport_validate);
     return R_NilValue;
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_expmAction_cpp_execute_uniformization_advanced", (DL_FUNC) &_expmAction_cpp_execute_uniformization_advanced, 5},
-    {"_expmAction_cpp_execute_uniformization_time", (DL_FUNC) &_expmAction_cpp_execute_uniformization_time, 5},
-    {"_expmAction_rcpparma_hello_world", (DL_FUNC) &_expmAction_rcpparma_hello_world, 0},
-    {"_expmAction_rcpparma_outerproduct", (DL_FUNC) &_expmAction_rcpparma_outerproduct, 1},
-    {"_expmAction_rcpparma_innerproduct", (DL_FUNC) &_expmAction_rcpparma_innerproduct, 1},
-    {"_expmAction_rcpparma_bothproducts", (DL_FUNC) &_expmAction_rcpparma_bothproducts, 1},
-    {"_expmAction_cpp_nimble_sparse_uniformization", (DL_FUNC) &_expmAction_cpp_nimble_sparse_uniformization, 7},
-    {"_expmAction_cpp_tune_uniformization", (DL_FUNC) &_expmAction_cpp_tune_uniformization, 2},
-    {"_expmAction_cpp_execute_uniformization", (DL_FUNC) &_expmAction_cpp_execute_uniformization, 6},
+    {"_expmAction_cpp_v_exp_Q_t", (DL_FUNC) &_expmAction_cpp_v_exp_Q_t, 4},
     {"_expmAction_RcppExport_registerCCallable", (DL_FUNC) &_expmAction_RcppExport_registerCCallable, 0},
     {NULL, NULL, 0}
 };
