@@ -1,7 +1,7 @@
 Package: expmAction
 Type: Package
 Title: Evaluates v'exp(Q) for sparse matrix Q
-Version: 0.0.9000
+Version: 0.1.9000
 Date: October 6, 2026
 Author: Devin S. Johnson
 Maintainer: Devin S. Johnson <devin.johnson@noaa.gov>
