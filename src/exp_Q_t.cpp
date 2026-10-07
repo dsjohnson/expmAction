@@ -4,6 +4,11 @@
 // [[Rcpp::depends(RcppArmadillo)]]
 // [[Rcpp::interfaces(r, cpp)]]
 
+//' @title Evaluate matrix exponential action using uniformization
+//' @param v A row vector
+//' @param Q a sparse rate matrix
+//' @param t Numeric time value, action evaluated is v'exp(Q*t)
+//' @param tolerance Maximum error of the numeric calculation
 //' @export
 // [[Rcpp::export]]
 arma::mat cpp_v_exp_Q_t(
